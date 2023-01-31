@@ -6,10 +6,13 @@ namespace ADHOM_Store.Controllers
 {
     public class HomeController : Controller
     {
-        
+        AdhomContext db = new AdhomContext();
         public IActionResult Index()
         {
-            return View();
+            
+            var cats = db.Categories.ToList();
+            ViewBag.prod=db.Products.ToList();
+            return View(cats);
         }
 
         public IActionResult Privacy()
@@ -20,6 +23,20 @@ namespace ADHOM_Store.Controllers
         public IActionResult Cart()
         {
             return View();
+        }
+
+        public IActionResult product(int id)
+        {
+            
+           var product= db.Products.Where(x=>x.CatId==id).ToList();
+            return View(product);
+        }
+
+        public IActionResult Categories()
+        {
+           
+           var cats= db.Categories.ToList();
+            return View(cats);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
