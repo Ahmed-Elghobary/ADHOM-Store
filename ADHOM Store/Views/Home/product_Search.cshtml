@@ -1,4 +1,19 @@
-﻿@model List<Product>
+﻿@model List<Product>;
+
+<div class="container mt-5 mb-5">
+
+    <form asp-action="product_Search" asp-controller="home" method="get">
+        <div class="row">
+            <div class="col-sm-10">
+                <input type="text" name="Xname" id="Xname" class="form-control" placeholder="Search" />
+            </div>
+
+            <button type="submit" class="col-sm-2 btn btn-primary">Click</button>
+        </div>
+    </form>
+
+</div>
+
 
 <section id="services" class="services section-bg">
     <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -16,7 +31,7 @@
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box iconbox-blue">
-                       <img src="@item.Image" class="myProductImage" style="width:100% !important"/>
+                        <img src="@item.Image" class="myProductImage" style="width:100% !important" />
                         <h4><a href="">@item.Name</a></h4>
                         <p>@item.Description</p>
                     </div>

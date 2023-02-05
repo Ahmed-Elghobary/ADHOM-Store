@@ -1,5 +1,23 @@
-﻿
-@model List<Category>
+﻿@model List<Category>
+
+
+
+<div class="container mt-5 mb-5">
+
+    <form asp-action="product_Search" asp-controller="home" method="get">
+        <div class="row">
+            <div class="col-sm-10">
+                <input type="text" name="Xname" id="Xname" class="form-control" placeholder="Search" />
+            </div>
+
+            <button type="submit" class="col-sm-2 btn btn-primary">Click</button>
+        </div>
+    </form>
+
+</div>
+
+
+
 <section id="portfolio" class="portfolio">
     <div class="container aos-init aos-animate" data-aos="fade-up">
 
@@ -14,9 +32,9 @@
                     <li data-filter="*" class="filter-active">All</li>
                     @foreach (var item in Model)
                     {
-                        <li data-filter=".@item.Name">@item.Name</li>
+                        <li data-filter="._@item.Id">@item.Name</li>
                     }
-                    
+
                 </ul>
             </div>
         </div>
@@ -26,21 +44,21 @@
 
             @foreach (var item in ViewBag.prod)
             {
-                
-            
-            <div class="col-lg-4 col-md-6 portfolio-item @item.Cat.Name" style="position: absolute; left: 0px; top: 0px;">
-                <div class="portfolio-wrap">
-                    <img src="@item.Image" alt="" style="width:100% !important">
-                    <div class="portfolio-info">
-                        <h4>@item.Name</h4>
+
+
+                <div class="col-lg-4 col-md-6 portfolio-item _@item.Cat.Id" style="position: absolute; left: 0px; top: 0px;">
+                    <div class="portfolio-wrap">
+                        <img src="@item.Image" alt="" style="width:100% !important">
+                        <div class="portfolio-info">
+                            <h4>@item.Name</h4>
                             <p>@item.Price EGP</p>
-                    </div>
-                    <div class="portfolio-links">
-                        <a href="~/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
             }
 
 

@@ -32,6 +32,15 @@ namespace ADHOM_Store.Controllers
             return View(product);
         }
 
+
+        [HttpGet]
+        public IActionResult product_Search(string Xname)
+        {
+
+            var product = db.Products.Where(x => x.Name.Contains(Xname)).ToList();
+            return View(product);
+        }
+
         public IActionResult Categories()
         {
            
