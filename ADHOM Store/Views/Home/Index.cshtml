@@ -68,3 +68,89 @@
     </div>
 
 </section>
+
+<section id="contact" class="contact section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="info-box mb-4">
+
+                  
+
+                   
+                    <i class="bx bx-map"></i>
+                    <h3>Our Address</h3>
+                    
+                    <p>Dakahlia Governorate - Gamssa city </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-box  mb-4">
+
+                    <a href="mailto:ahmedelgobary2111@gmail.com" target="_blank">
+                        <i class="bx bx-envelope"></i>
+
+                        
+                        <h3>Email Us</h3>
+                        <p></p>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-box  mb-4">
+                    <a href="https://api.whatsapp.com/send?phone=+201067866454)" target="_blank">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Call Us</h3>
+                    </a>
+
+                    <p></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6 ">
+                <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13616.06101440444!2d31.545202575269236!3d31.441247009585695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f75c00079c699b%3A0x7acb376a427faf5e!2z2KzZhdi12KnYjCDYrNmF2LXZh9iMINmF2LHZg9iyINio2YTZgtin2LPYjCDYp9mE2K_ZgtmH2YTZitipIDc3MzExNjg!5e0!3m2!1sar!2seg!4v1675723311698!5m2!1sar!2seg" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen=""></iframe>
+            </div>
+
+            <div class="col-lg-6">
+                <form asp-action="sendReview" asp-controller="Home" method="post" role="form" class="myForm">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="Name" class="form-control" id="Name" placeholder="Your Name" required="">
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="email" class="form-control" name="Email" id="Email" placeholder="Your Email" required="">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Subject" required="">
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="Description" id="Description" rows="5" placeholder="Message" required=""></textarea>
+                    </div>
+
+                    <div class="text-center">
+
+                        <button type="submit" class="btn btn-primary" onclick="alert('تم الارسال بنجاح ')">Send Message</button>
+
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>

@@ -5,3 +5,12 @@
     width: 370px;
     height: 375px;
 }
+
+.myForm {
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 30px rgb(214 215 216 / 60%);
+}
+
+
+

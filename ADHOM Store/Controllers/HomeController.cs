@@ -41,6 +41,15 @@ namespace ADHOM_Store.Controllers
             return View(product);
         }
 
+        [HttpPost]
+        public IActionResult sendReview(Review model)
+        {
+
+             db.Reviews.Add(new Review { Name=model.Name,Email=model.Email,Subject=model.Subject,Description=model.Description});
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Categories()
         {
            
