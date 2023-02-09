@@ -1,5 +1,4 @@
-﻿@model List<Category>
-
+﻿@model ADHOM_Store.Models.indexVm
 
 
 <div class="container mt-5 mb-5">
@@ -30,7 +29,7 @@
             <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">
                     <li data-filter="*" class="filter-active">All</li>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.CategoriesVm)
                     {
                         <li data-filter="._@item.Id">@item.Name</li>
                     }
@@ -42,7 +41,7 @@
         <div class="row portfolio-container" style="position: relative; height: 1507.84px;">
 
 
-            @foreach (var item in ViewBag.prod)
+            @foreach (var item in Model.ProductsVm)
             {
 
 
@@ -55,7 +54,7 @@
                         </div>
                         <div class="portfolio-links">
                             <a href="~/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                            <a href="/Home/CurrentProduct/@item.Id"  title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
@@ -68,6 +67,48 @@
     </div>
 
 </section>
+
+
+
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Customer Reviews 😎 </h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="testimonials-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events aos-init aos-animate swiper-backface-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper" id="swiper-wrapper-24d47e4589181086b" aria-live="off" style="transform: translate3d(-1112px, 0px, 0px); transition-duration: 0ms;">
+               
+                @foreach(var item in Model.ReviewsVm)
+                {
+                    
+                
+                <div class="swiper-slide swiper-slide-prev" role="group" aria-label="1 / 5" style="width: 516px; margin-right: 40px;" data-swiper-slide-index="0">
+                    <div class="testimonial-item">
+                        <p style="min-height:200px">
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                           @item.Description
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="~/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                        <h3>@item.Name</h3>
+                        <h4>@item.Subject</h4>
+                    </div>
+                </div><!-- End testimonial item -->
+                }
+               
+
+               
+            </div>
+            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+
+    </div>
+</section>
+
 
 <section id="contact" class="contact section-bg">
     <div class="container aos-init aos-animate" data-aos="fade-up">
