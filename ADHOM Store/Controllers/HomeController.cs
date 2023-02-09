@@ -1,5 +1,6 @@
 ﻿using ADHOM_Store.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace ADHOM_Store.Controllers
@@ -9,10 +10,13 @@ namespace ADHOM_Store.Controllers
         AdhomContext db = new AdhomContext();
         public IActionResult Index()
         {
+
+            indexVm Result = new indexVm();
             
-            var cats = db.Categories.ToList();
-            ViewBag.prod=db.Products.ToList();
-            return View(cats);
+            Result.CategoriesVm = db.Categories.ToList();
+            Result.ProductsVm=db.Products.ToList();
+            Result.ReviewsVm=db.Reviews.ToList();
+            return View(Result);
         }
 
         public IActionResult Privacy()
@@ -33,12 +37,30 @@ namespace ADHOM_Store.Controllers
         }
 
 
+        public IActionResult CurrentProduct(int id)
+        {
+
+            var productFind = db.Products.Include(x=>x.Cat).Include(x => x.ProductImages).FirstOrDefault(x=>x.Id == id);
+            return View(productFind);
+        }
+
+
         [HttpGet]
         public IActionResult product_Search(string Xname)
         {
+            var products=new List<Product>();
+            if (string.IsNullOrEmpty(Xname))
+            {
+                products = db.Products.ToList();
+            }
+            else
+            {
 
-            var product = db.Products.Where(x => x.Name.Contains(Xname)).ToList();
-            return View(product);
+
+                products = db.Products.Where(x => x.Name.Contains(Xname)).ToList();
+            
+            }
+            return View(products);
         }
 
         [HttpPost]
