@@ -19,6 +19,7 @@ namespace ADHOM_Store.Models
         public virtual DbSet<Cart> Carts { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
+        public virtual DbSet<ProductImage> ProductImages { get; set; } = null!;
         public virtual DbSet<Review> Reviews { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -55,16 +56,30 @@ namespace ADHOM_Store.Models
 
                 entity.Property(e => e.CatId).HasColumnName("Cat_Id");
 
-                entity.Property(e => e.Description).HasMaxLength(50);
+                entity.Property(e => e.EntryDate).HasColumnType("date");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
 
+                entity.Property(e => e.SupllierName).HasMaxLength(50);
+
+                entity.Property(e => e.Type).HasMaxLength(50);
+
                 entity.HasOne(d => d.Cat)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.CatId)
                     .HasConstraintName("FK_Product_Category");
+            });
+
+            modelBuilder.Entity<ProductImage>(entity =>
+            {
+                entity.ToTable("ProductImage");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ProductImages)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_ProductImage_Product");
             });
 
             modelBuilder.Entity<Review>(entity =>
