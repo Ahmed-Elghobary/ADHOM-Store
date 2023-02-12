@@ -21,6 +21,7 @@ namespace ADHOM_Store.Models
         public string? SupllierName { get; set; }
         public DateTime? EntryDate { get; set; }
         public string? ReviewUrl { get; set; }
+        public int? Qty { get; set; }
 
         public virtual Category? Cat { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }
