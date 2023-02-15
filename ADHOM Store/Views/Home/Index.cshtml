@@ -47,7 +47,7 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item _@item.Cat.Id" style="position: absolute; left: 0px; top: 0px;">
                     <div class="portfolio-wrap">
-                        <img src="@item.Image" alt="" style="width:100% !important">
+                        <img src="https://localhost:61973/upload/@item.Image" alt="" style="width:100% !important">
                         <div class="portfolio-info">
                             <h4>@item.Name</h4>
                             <p>@item.Price EGP</p>
@@ -104,6 +104,41 @@
             </div>
             <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span></div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<section id="pricing" class="pricing section-bg" style="background:white;">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>New products </h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+            
+            @foreach(var item in Model.LatestProduct){ 
+            <div class="col-lg-3 col-md-6 mt-4 mt-md-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="box featured">
+                    <h3 style="overflow:hidden;height:60px;">@item.Name</h3>
+                    <h4><sup>EGP</sup>@item.Price<span> </span></h4>
+                   <img src="@item.Image" style="max-height:200px;min-height:250px;" width="200">
+                    <div class="btn-wrap">
+                            <a href="/home/CurrentProduct/@item.Id" class="btn-buy">More Details</a>
+                    </div>
+                </div>
+            </div>
+
+            }
+
+           
+
         </div>
 
     </div>

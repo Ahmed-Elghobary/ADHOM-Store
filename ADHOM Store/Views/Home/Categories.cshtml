@@ -27,7 +27,10 @@
                     </div>
                 </div>
             }
-
+            @if (ViewBag.isAdmin)
+            {
+                <a href="/Categories" class="btn btn-primary">Category Setting</a>
+            }
 
         </div>
 

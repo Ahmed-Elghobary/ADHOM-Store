@@ -16,6 +16,7 @@ namespace ADHOM_Store.Controllers
             Result.CategoriesVm = db.Categories.ToList();
             Result.ProductsVm=db.Products.ToList();
             Result.ReviewsVm=db.Reviews.ToList();
+            Result.LatestProduct = db.Products.OrderByDescending(x=>x.EntryDate).Take(4).ToList();
             return View(Result);
         }
 
@@ -76,6 +77,7 @@ namespace ADHOM_Store.Controllers
         {
            
            var cats= db.Categories.ToList();
+            ViewBag.isAdmin = true;
             return View(cats);
         }
 
