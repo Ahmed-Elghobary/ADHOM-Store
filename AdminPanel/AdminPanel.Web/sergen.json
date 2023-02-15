@@ -1,0 +1,53 @@
+{
+  "RootNamespace": "AdminPanel",
+  "ServerTypings": {
+    "LocalTexts": true
+  },
+  "EndOfLine": "LF",
+  "Restore": {
+    "Exclude": [
+      "/**/*"
+    ]
+  },
+  "Connections": [
+    {
+      "Key": "adham",
+      "Tables": [
+        {
+          "Tablename": "dbo.Cart",
+          "Identifier": "Cart",
+          "Module": "AdhomStoreCom",
+          "PermissionKey": "Cart"
+        },
+        {
+          "Tablename": "dbo.Category",
+          "Identifier": "Category",
+          "Module": "AdhomStoreCom",
+          "PermissionKey": "Category"
+        },
+        {
+          "Tablename": "dbo.Product",
+          "Identifier": "Product",
+          "Module": "AdhomStoreCom",
+          "PermissionKey": "Product"
+        },
+        {
+          "Tablename": "dbo.ProductImage",
+          "Identifier": "ProductImage",
+          "Module": "AdhomStoreCom",
+          "PermissionKey": "ProductImage"
+        },
+        {
+          "Tablename": "dbo.Review",
+          "Identifier": "Review",
+          "Module": "AdhomStoreCom",
+          "PermissionKey": "Review"
+        }
+      ]
+    }
+  ],
+  "UpgradeInfo": {
+    "InitialType": "Community",
+    "InitialVersion": "6.5.1.0"
+  }
+}
