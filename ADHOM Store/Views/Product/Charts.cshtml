@@ -1,0 +1,80 @@
+﻿<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7035/Product/getAllProduct",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                Names = response.map(x => x.name)
+                Values = response.map(x => x.price)
+
+                console.log(response)
+
+                const ctx = document.getElementById('myChart');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: Names,
+                        datasets: [
+                            {
+                                label: 'label1',
+                                data: Values,
+                                backgroundColor: ['green', 'cyan', 'blue', '#445533', '#225588'],
+                                borderWidth: 1
+                            },
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+
+                    }
+
+                });
+
+
+            },
+
+            error: function (response) {
+                console.log(response);
+                alert.log("Error");
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

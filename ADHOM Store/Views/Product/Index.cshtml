@@ -1,0 +1,36 @@
+﻿<h1>product view</h1>
+@model ProductVm
+
+<form asp-action="Create" asp-controller="Product" method="post" role="form" class="myForm">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <input type="text" name="CatName_Vm" class="form-control" id="CatName_Vm" placeholder="Category" >
+            <span asp-validation-for="CatName_Vm" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <input type="text" class="form-control" name="ProductName_Vm" id="ProductName_Vm" placeholder="product Name" >
+            <span asp-validation-for="ProductName_Vm" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <input type="text" class="form-control" name="ProductPrice_Vm" id="ProductPrice_Vm" placeholder="Price" >
+        <span asp-validation-for="ProductPrice_Vm" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <input type="text" class="form-control" name="ProductQt_Vm" id="ProductQt_Vm" placeholder="Qantity" >
+        <span asp-validation-for="ProductQt_Vm" class="text-danger"></span>
+    </div>
+
+   
+
+    <div class="text-center">
+
+        <button type="submit" class="btn btn-primary" >Send Message</button>
+
+
+    </div>
+
+    @Html.DropDownList("Id",(SelectList) ViewBag.catlist,"select category")
+</form>
