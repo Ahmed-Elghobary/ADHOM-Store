@@ -32,5 +32,18 @@ namespace ADHOM_Store.Controllers
             var o_k = db.Products.ToList();
             return Ok(o_k);
         }
+
+
+        [HttpDelete("removeProduct/{id}")]
+        public IActionResult removeProduct(int id)
+        {
+            var product = db.Products.Find(id);
+            if (product!=null)
+            {
+                db.Products.Remove(product);
+            }
+            db.SaveChanges();
+            return Ok("تم الحذف بنجاح");
+        }
     }
 }

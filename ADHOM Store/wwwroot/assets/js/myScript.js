@@ -11,14 +11,30 @@
             appendElement.append($("<td>").html(value["name"]));
             appendElement.append($("<td>").html(value["price"]));
             appendElement.append($("<td>").html(value["qty"]));
-            if (value["cat"]) {
-                appendElement.append($("<td>").html(value["cat"]["catId"]));
-            }
-        appendElement.append($("<td>").html(""));
+            appendElement.append($("<td>").html(value["catname"]));
+            appendElement.append($("<td>").html("<a class='btn btn-danger' id=" + value["id"]+"'\">Delete</a>"));
             
         });
     },
     error: function (xhr, status, error) {
         console.log(xhr)
     }
+});
+
+
+
+$("table").on("click", "img.delete", function () {
+    var reservationId = $(this).parents("tr").find("td:nth-child(1)").text();
+
+    $.ajax({
+        url: "https://localhost:44324/api/values/removeProduct/" + reservationId,
+        type: "delete",
+        contentType: "application/json",
+        success: function (result, status, xhr) {
+            ShowAllReservation();
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr)
+        }
+    });
 });
