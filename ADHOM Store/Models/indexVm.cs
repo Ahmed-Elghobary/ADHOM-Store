@@ -6,8 +6,8 @@
         public indexVm()
         {
             CategoriesVm = new List<Category>();
-            ProductsVm= new List<Product>();  
-            ReviewsVm= new List<Review>();
+            ProductsVm = new List<Product>();
+            ReviewsVm = new List<Review>();
             LatestProduct = new List<Product>();
         }
        

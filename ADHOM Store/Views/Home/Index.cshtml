@@ -47,13 +47,13 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item _@item.Cat.Id" style="position: absolute; left: 0px; top: 0px;">
                     <div class="portfolio-wrap">
-                        <img src="https://localhost:61973/upload/@item.Image" alt="" style="width:100% !important">
+                        <img src="@item.Image" alt="" style="width:100% !important">
                         <div class="portfolio-info">
                             <h4>@item.Name</h4>
                             <p>@item.Price EGP</p>
                         </div>
                         <div class="portfolio-links">
-                            <a href="~/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                            <a href="@item.Image" data-gallery="portfolioGallery" class="portfolio-lightbox" title="@item.Name"><i class="bx bx-plus"></i></a>
                             <a href="/Home/CurrentProduct/@item.Id"  title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
