@@ -1,4 +1,5 @@
 ﻿using ADHOM_Store.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -8,6 +9,13 @@ namespace ADHOM_Store.Controllers
     public class HomeController : Controller
     {
         AdhomContext db = new AdhomContext();
+        UserManager<IdentityUser> _usermanger;
+        RoleManager<IdentityRole> _role;
+        public HomeController(UserManager<IdentityUser> user, RoleManager<IdentityRole> role)
+        {
+            _usermanger = user;
+            _role = role;
+        }
         public IActionResult Index()
         {
 
@@ -22,7 +30,14 @@ namespace ADHOM_Store.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            var user = _usermanger.Users.ToList();
+            return View(user);
+        }
+
+        public IActionResult Role()
+        {
+            var Role = _role.Roles.ToList();
+            return View(Role);
         }
 
         public IActionResult Cart()

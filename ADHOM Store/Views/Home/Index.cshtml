@@ -47,13 +47,13 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item _@item.Cat.Id" style="position: absolute; left: 0px; top: 0px;">
                     <div class="portfolio-wrap">
-                        <img src="@item.Image" alt="" style="width:100% !important">
+                        <img src="https://localhost:52084/upload/@item.Image" alt="" style="width:100% !important">
                         <div class="portfolio-info">
                             <h4>@item.Name</h4>
                             <p>@item.Price EGP</p>
                         </div>
                         <div class="portfolio-links">
-                            <a href="@item.Image" data-gallery="portfolioGallery" class="portfolio-lightbox" title="@item.Name"><i class="bx bx-plus"></i></a>
+                            <a href="https://localhost:52084/upload/@item.Image" data-gallery="portfolioGallery" class="portfolio-lightbox" title="@item.Name"><i class="bx bx-plus"></i></a>
                             <a href="/Home/CurrentProduct/@item.Id"  title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                 <div class="box featured">
                     <h3 style="overflow:hidden;height:60px;">@item.Name</h3>
                     <h4><sup>EGP</sup>@item.Price<span> </span></h4>
-                   <img src="@item.Image" style="max-height:200px;min-height:250px;" width="200">
+                        <img src="https://localhost:52084/upload/@item.Image" style="max-height:200px;min-height:250px;" width="200">
                     <div class="btn-wrap">
                             <a href="/home/CurrentProduct/@item.Id" class="btn-buy">More Details</a>
                     </div>

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADHOM Store", "ADHOM Store\ADHOM Store.csproj", "{D7318205-C733-4ED4-BC7F-A564D98956A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPanel.Web", "AdminPanel\AdminPanel.Web\AdminPanel.Web.csproj", "{C9C00EEE-D184-46DE-BF11-3BA4519F8EBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdhomPanel.Web", "AdhomPanel\AdhomPanel.Web\AdhomPanel.Web.csproj", "{593E013D-24F1-4AF1-98D6-C51451852309}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{D7318205-C733-4ED4-BC7F-A564D98956A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7318205-C733-4ED4-BC7F-A564D98956A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7318205-C733-4ED4-BC7F-A564D98956A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C9C00EEE-D184-46DE-BF11-3BA4519F8EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9C00EEE-D184-46DE-BF11-3BA4519F8EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9C00EEE-D184-46DE-BF11-3BA4519F8EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9C00EEE-D184-46DE-BF11-3BA4519F8EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{593E013D-24F1-4AF1-98D6-C51451852309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{593E013D-24F1-4AF1-98D6-C51451852309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{593E013D-24F1-4AF1-98D6-C51451852309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{593E013D-24F1-4AF1-98D6-C51451852309}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
