@@ -1,4 +1,5 @@
 ﻿using ADHOM_Store.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +28,7 @@ namespace ADHOM_Store.Controllers
             Result.LatestProduct = db.Products.OrderByDescending(x=>x.EntryDate).Take(4).ToList();
             return View(Result);
         }
-
+        [Authorize]
         public IActionResult Privacy()
         {
             var user = _usermanger.Users.ToList();
