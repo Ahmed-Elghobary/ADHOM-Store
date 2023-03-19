@@ -4,6 +4,7 @@ using ADHOM_Store.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADHOM_Store.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230318191110_Change USER TableName")]
+    partial class ChangeUSERTableName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,26 +73,6 @@ namespace ADHOM_Store.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "f57fbccc-100e-45c1-aed2-a85b88c21458",
-                            ConcurrencyStamp = "5fa6784b-b289-43da-921c-b7927287eebe",
-                            Name = "Marketier"
-                        },
-                        new
-                        {
-                            Id = "f4a5c531-dff8-4afd-aa0d-3ecad1c9ccdf",
-                            ConcurrencyStamp = "210a92b1-1246-43d0-88e4-f219e7d3db8f",
-                            Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = "054da5aa-473d-4d22-b029-92ba9f3badb1",
-                            ConcurrencyStamp = "23a51e47-f53b-4e36-91fc-f785d8dbe916",
-                            Name = "Sales"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -53,6 +53,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "Roles",
+    pattern: "{controller=Home}/{action=Index}/{userId?}/{roleName?}");
 app.MapRazorPages();
 
 app.Run();

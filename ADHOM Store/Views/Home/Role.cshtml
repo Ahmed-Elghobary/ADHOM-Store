@@ -1,9 +1,16 @@
 ﻿
 <h1>Role page</h1>
-@foreach(var item in Model)
+@*@foreach(var item in Model)
 {
     
 
 
 <h3>@item</h3>
-}
+}*@
+@model RoleVm
+
+<form  asp-controller="home" asp-action="Role" method="post">
+    <label>Role Name</label>
+    <input class="form-control" id="roleName" name="roleName" />
+    <input type="submit" class="btn btn-success"/>
+</form>

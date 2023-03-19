@@ -1,0 +1,51 @@
+﻿
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Enail
+                </th>
+                <th>
+                    Name
+                </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Active Role
+            </th>
+
+            </tr>
+
+        </thead>
+       
+    @foreach(var item in Model)
+    {
+        <tr>
+            <th>@item.User.Email</th>
+            <th>@item.User.UserName</th>
+            <th>@item.User.PhoneNumber</th>
+            <th>
+
+
+                @foreach (var GetRole in ViewBag.AllRoles)
+                {
+                    @if (item.UserRole.Contains(GetRole.ToString()))
+                    {
+                        <a class="btn btn-primary" href="addRole/@item.User.Id/@GetRole">@GetRole>@GetRole</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-outline-primary" href="addRole/@item.User.Id/@GetRole">@GetRole</a>
+                    }
+                   
+                }
+
+            </th>
+
+        </tr>
+    }
+
+
+    </table>
