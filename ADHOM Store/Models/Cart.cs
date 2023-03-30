@@ -9,6 +9,7 @@ namespace ADHOM_Store.Models
         public string? UserId { get; set; }
         public int? ProductId { get; set; }
         public int? Qty { get; set; }
+        public decimal? Price { get; set; }
 
         public virtual Product? Product { get; set; }
     }

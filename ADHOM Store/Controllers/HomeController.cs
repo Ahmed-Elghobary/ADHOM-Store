@@ -38,19 +38,20 @@ namespace ADHOM_Store.Controllers
         {
             //var user = _usermanger.Users.ToList();
             //_role.CreateAsync(new IdentityRole { });
-            var Role = _role.Roles.ToList();
+            //var Role = _role.Roles.ToList();
+            var x = this.User;
 
-            return View(Role);
+            return View();
         }
 
 
-       public  async Task< IActionResult> addRole(string userId,string roleName)
+        public async Task<IActionResult> addRole(string userId, string roleName)
         {
-            var _user =await _usermanger.FindByIdAsync(userId);
+            var _user = await _usermanger.FindByIdAsync(userId);
             var result = await _usermanger.AddToRoleAsync(_user, roleName);
             if (!result.Succeeded)
             {
-                 await _usermanger.RemoveFromRoleAsync(_user, roleName);
+                await _usermanger.RemoveFromRoleAsync(_user, roleName);
             }
             return RedirectToAction("UserRoles");
         }
@@ -80,19 +81,31 @@ namespace ADHOM_Store.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public async Task<IActionResult> Cart()
         {
-            //await _role.CreateAsync(new IdentityRole { Name = "Admin" });
-            //await _role.CreateAsync(new IdentityRole { Name = "SupAdmin" });
-            //await _role.CreateAsync(new IdentityRole { Name = "Sales" });
+            
 
-            if (_Usdb.Roles.FirstOrDefault(x => x.Name == "admon") == null)
+            return View(db.Carts.Include(x=>x.Product).Where(x => x.UserId == User.Identity.Name).ToList());
+        }
+        [Authorize]
+        public async Task<IActionResult> AddCart(int id)
+        {
+            var sellPrice = db.Products.Find(id).Price;
+            var CartPlus= db.Carts.FirstOrDefault(c => c.ProductId == id && c.UserId==User.Identity.Name);
+            if (CartPlus !=null)
             {
-                _Usdb.Roles.Add(new IdentityRole { Name = "admon" });
-                _Usdb.SaveChanges();
+                CartPlus.Qty += 1;
+                db.SaveChanges();
             }
-
-            return View();
+            else
+            {
+                db.Carts.Add(new Cart { ProductId = id, UserId = User.Identity.Name, Qty = 1, Price = sellPrice });
+                db.SaveChanges();
+            }
+           
+           
+            return RedirectToAction("Index");
         }
 
         public IActionResult product(int id)
@@ -137,7 +150,7 @@ namespace ADHOM_Store.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        
         public IActionResult Categories()
         {
 

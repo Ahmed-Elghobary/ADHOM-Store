@@ -3,11 +3,11 @@
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
-@foreach(var item in Model)
+@*@foreach(var item in Model)
 {
     @*<h3>@item.Email</h3>
     <h1>@item.Id</h1>*@
-    <h3>@item.Name</h3>
-}
-
+   @* <h3>@item.Name</h3>*@
+}*
+<span>@User.Identity.Name</span>
 <p>Use this page to detail your site's privacy policy.</p>

@@ -1,5 +1,5 @@
 ﻿@model Product
-<section id="portfolio-details" class="portfolio-details">
+@*<section id="portfolio-details" class="portfolio-details">
     <div class="container">
 
 
@@ -64,11 +64,50 @@
                     </div>
 
                 </div>
-            
+
            
 
         </div>
 
 
     </div>
+</section>*@
+<section class="card_shop">
+    <div class="image">
+        <span class="discount"> -25</span>
+        <img src="https://localhost:52084/upload/@Model.Image" alt="">
+    </div>
+    <div class="contant">
+        <p>@Model.Name</p>
+        <div class="price">
+            <h1>@Model.Price LE </h1>
+            <span>423.5 LE</span>
+            <p class="discount"> وفر -25</p>
+        </div>
+        <div class="color">color :<span>برتقالي</span></div>
+        <img src="https://localhost:52084/upload/@Model.Image" alt="">
+        <div class="size">size :<span>M</span></div>
+        <div class="put">
+            <p>M</p>
+            <p>L</p>
+            <p>XL</p>
+            <p>2XL</p>
+            <p>3XL</p>
+        </div>
+        <div class="card">
+            <div class="count">
+                <span><i class="fa-solid fa-plus"></i></span>
+                <span class="con">0</span>
+                <span><i class="fa-solid fa-minus"></i></span>
+            </div>
+            <h2>اضف الي السله</h2>
+            <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="text">
+            <h2>وصف المنتج</h2>
+            <p>@Model.Description</p>
+
+        </div>
+    </div>
 </section>
+<script src="~/assets/js/Product.js"> </script>

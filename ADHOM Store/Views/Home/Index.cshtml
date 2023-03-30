@@ -54,7 +54,7 @@
                         </div>
                         <div class="portfolio-links">
                             <a href="https://localhost:52084/upload/@item.Image" data-gallery="portfolioGallery" class="portfolio-lightbox" title="@item.Name"><i class="bx bx-plus"></i></a>
-                            <a href="/Home/CurrentProduct/@item.Id"  title="More Details"><i class="bx bx-link"></i></a>
+                            <a href="/Home/CurrentProduct/@item.Id" title="More Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
@@ -80,27 +80,29 @@
 
         <div class="testimonials-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events aos-init aos-animate swiper-backface-hidden" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper" id="swiper-wrapper-24d47e4589181086b" aria-live="off" style="transform: translate3d(-1112px, 0px, 0px); transition-duration: 0ms;">
-               
-                @foreach(var item in Model.ReviewsVm)
-                {
-                    
-                
-                <div class="swiper-slide swiper-slide-prev" role="group" aria-label="1 / 5" style="width: 516px; margin-right: 40px;" data-swiper-slide-index="0">
-                    <div class="testimonial-item">
-                        <p style="min-height:200px">
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                           @item.Description
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="~/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                        <h3>@item.Name</h3>
-                        <h4>@item.Subject</h4>
-                    </div>
-                </div><!-- End testimonial item -->
-                }
-               
 
-               
+                @foreach (var item in Model.ReviewsVm)
+                {
+
+
+                    <div class="swiper-slide swiper-slide-prev" role="group" aria-label="1 / 5" style="width: 516px; margin-right: 40px;" data-swiper-slide-index="0">
+                        <div class="testimonial-item">
+                            <p style="min-height:200px">
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                @item.Description
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                            <img src="~/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                            <h3>@item.Name</h3>
+                            <h4>@item.Subject</h4>
+                        </div>
+                    </div>
+
+                    <!-- End testimonial item -->
+                }
+
+
+
             </div>
             <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span></div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
@@ -122,22 +124,94 @@
 
         <div class="row">
 
-            
-            @foreach(var item in Model.LatestProduct){ 
-            <div class="col-lg-3 col-md-6 mt-4 mt-md-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                <div class="box featured">
-                    <h3 style="overflow:hidden;height:60px;">@item.Name</h3>
-                    <h4><sup>EGP</sup>@item.Price<span> </span></h4>
+@*
+            @foreach (var item in Model.LatestProduct)
+            {
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box featured">
+                        <h3 style="overflow:hidden;height:60px;">@item.Name</h3>
+                        <h4><sup>EGP</sup>@item.Price<span> </span></h4>
                         <img src="https://localhost:52084/upload/@item.Image" style="max-height:200px;min-height:250px;" width="200">
-                    <div class="btn-wrap">
+                        <div class="btn-wrap">
                             <a href="/home/CurrentProduct/@item.Id" class="btn-buy">More Details</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            }
+            }*@
 
-           
+
+            <section class="shop" id="shop">
+                <div class="heading"><h1>أستعد للصيف</h1></div>
+
+                <div class="swiper preducts_slider swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden">
+
+                    <div class="swiper-wrapper" id="swiper-wrapper-db2c5841adc1ba6b" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(1223.33px, 0px, 0px);">
+
+                        @foreach (var item in Model.LatestProduct)
+                        {
+
+                            <div class="swiper-slide slider" role="group" aria-label="3 / 8" data-swiper-slide-index="2" style="width: 224.667px; margin-left: 20px;">
+                                <div class="image">
+                                    <span class="discount"> -25</span>
+                                    <img src="https://localhost:52084/upload/@item.Image" alt="">
+                                   
+                                </div>
+                                <div class="contant">
+                                    <a href="/home/CurrentProduct/@item.Id">
+                                        <p >@item.Name</p>
+                                        <div class="price">@item.Price LE <span>423.5 LE</span></div>
+                                    </a>
+                                    
+                                </div>
+                                <center>
+                                    <a href="/home/AddCart/@item.Id" class="btn btn-success">
+                                        Add To Cart
+                                        <i class="bi bi-plus"></i>
+                                    </a>
+                                </center>
+                                
+                            </div>
+                           
+                        }
+
+                    </div>
+                    <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-db2c5841adc1ba6b"></div>
+                    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-db2c5841adc1ba6b"></div>
+
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+               
+
+            </section>
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
 
@@ -157,12 +231,12 @@
             <div class="col-lg-6">
                 <div class="info-box mb-4">
 
-                  
 
-                   
+
+
                     <i class="bx bx-map"></i>
                     <h3>Our Address</h3>
-                    
+
                     <p>Dakahlia Governorate - Gamssa city </p>
                 </div>
             </div>
@@ -173,7 +247,7 @@
                     <a href="mailto:ahmedelgobary2111@gmail.com" target="_blank">
                         <i class="bx bx-envelope"></i>
 
-                        
+
                         <h3>Email Us</h3>
                         <p></p>
                     </a>
