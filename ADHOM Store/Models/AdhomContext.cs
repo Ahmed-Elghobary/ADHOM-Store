@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ADHOM_Store.Models
 {
-    public partial class AdhomContext : DbContext
+    public partial class adhomContext : DbContext
     {
-        public AdhomContext()
+        public adhomContext()
         {
         }
 
-        public AdhomContext(DbContextOptions<AdhomContext> options)
+        public adhomContext(DbContextOptions<adhomContext> options)
             : base(options)
         {
         }
@@ -34,7 +34,7 @@ namespace ADHOM_Store.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-PLKV7QJ;Database=Adhom;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-3UDQI7R;Database=Adhom;Trusted_Connection=true;");
             }
         }
 
@@ -93,7 +93,7 @@ namespace ADHOM_Store.Models
             {
                 entity.ToTable("Cart");
 
-                entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.Carts)

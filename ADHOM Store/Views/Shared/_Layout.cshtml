@@ -42,44 +42,14 @@
 </head>
 
 <body>
-    <header class="fixed-top ">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">Hidden brand</a>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-primary" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
-                        <li class="nav-item">
-                            <partial name="_LoginPartial" />
-                        </li>
 
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit"><i class="bi-search"></i></button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </header>
     
     <!-- ======= Header ======= -->
-   @* <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
             <h1 class="logo"><a href="index.html">ADHOM </a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo"><img src="~/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+           @* <<a href="index.html" class="logo"><img src="~/assets/img/logo.png" alt="" class="img-fluid"></a>*@
 
             <nav id="navbar" class="navbar">
 
@@ -90,10 +60,10 @@
                     <li><a class="nav-link scrollto" href="/Home/categories">Category</a></li>
                     <li><a class="nav-link scrollto" href="/Home/Cart">Cart</a></li>
                     <li><a class="nav-link scrollto" href="https://localhost:52084/">Admin</a></li>
-                   @* <li><a class="nav-link scrollto" href="/Home/Privacy">Roles</a></li>*@
-                    @*<li><a class="nav-link scrollto" href="/Identity/Account/Register">Register</a></li>
-                    <li><a class="nav-link scrollto" href="/Identity/Account/Login">Login</a></li>*@
-                   @* <partial name="_LoginPartial"/>*@
+                    <li><a class="nav-link scrollto" href="/Home/Privacy">Roles</a></li>
+                    <li><a class="nav-link scrollto" href="/Identity/Account/Register">Register</a></li>
+                    <li><a class="nav-link scrollto" href="/Identity/Account/Login">Login</a></li>
+                   <partial name="_LoginPartial"/>
                     
                     @*<li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
@@ -115,13 +85,13 @@
                     </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Get Started</a></li>*@
-              @*  </ul>
+                    <li><a class="getstarted scrollto" href="#about">Get Started</a></li*@
+                </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+            </nav>
 
         </div>
-    </header><!-- End Header -->*@
+    </header>
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
 

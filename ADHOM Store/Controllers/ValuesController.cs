@@ -9,7 +9,7 @@ namespace ADHOM_Store.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        AdhomContext db = new AdhomContext();
+        adhomContext db = new adhomContext();
         public IActionResult Index()
         {
             var o_k = db.Products.Include(x=>x.Cat).Select(

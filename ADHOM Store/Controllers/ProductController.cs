@@ -8,7 +8,7 @@ namespace ADHOM_Store.Controllers
     {
         public IActionResult Index()
         {
-            AdhomContext db = new AdhomContext();
+            adhomContext db = new adhomContext();
            var list= db.Categories.Select(x => new {x.Id, x.Name});
             ViewBag.catlist = new SelectList(list, "Id", "Name");
             return View();
@@ -22,7 +22,7 @@ namespace ADHOM_Store.Controllers
         //https://localhost:7035/Product/getAllProduct
         public IActionResult getAllProduct()
         {
-            AdhomContext db = new AdhomContext();
+            adhomContext db = new adhomContext();
           var o_k=  db.Products.Select(x => new { x.Name, x.Price, x.Qty }).ToList();
             return Ok(o_k);
         }
@@ -33,7 +33,7 @@ namespace ADHOM_Store.Controllers
             
             if (ModelState.IsValid)
             {
-                AdhomContext db = new AdhomContext();
+                adhomContext db = new adhomContext();
                 Category  c= new Category ();
                 c.Name = model.CatName_Vm;
                 db.Categories.Add(c);

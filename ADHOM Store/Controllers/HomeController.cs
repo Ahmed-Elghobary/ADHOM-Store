@@ -10,7 +10,7 @@ namespace ADHOM_Store.Controllers
 {
     public class HomeController : Controller
     {
-        AdhomContext db = new AdhomContext();
+        adhomContext db = new adhomContext();
         ApplicationDbContext _Usdb;
         UserManager<IdentityUser> _usermanger;
         RoleManager<IdentityRole> _role;

@@ -29,7 +29,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllers().AddJsonOptions(x =>
 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
-builder.Services.AddScoped<AdhomContext> ();
+builder.Services.AddScoped<adhomContext> ();
 
 var app = builder.Build();
 
