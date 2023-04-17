@@ -1,6 +1,11 @@
-﻿@model List<ADHOM_Store.Models.Category>
+﻿@model List< ADHOM_Store.Models.Category>
 
-<section id="services" class="services section-bg">
+
+
+
+
+<br />
+@*<section id="services" class="services section-bg">
     <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <div class="section-title">
@@ -26,8 +31,16 @@
                         <p>@item.Description</p>
                     </div>
                 </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea" />
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+
             }
-            @if (ViewBag.isAdmin)
+            if (ViewBag.isAdmin)
             {
                 <a href="/Categories" class="btn btn-primary">Category Setting</a>
             }
@@ -35,4 +48,105 @@
         </div>
 
     </div>
-</section>
+</section>*@
+
+<!-- Carousel wrapper -->
+@*<div class="container-fluid">
+    <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+        <!-- Controls -->
+        <div class="d-flex justify-content-center mb-4">
+            <button class="carousel-control-prev position-relative" type="button"
+                    data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next position-relative" type="button"
+                    data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Inner -->
+        <div class="carousel-inner py-4">
+            <!-- Single item -->
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row border border-0 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <div class="section-title">
+                            <h2>Categories</h2>
+                            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        </div>
+                        @foreach(var item in Model)
+                        {
+                            <div class="col-lg-4   p-3 mb-2 bg-body text-body">
+                                <br>
+                                <a href="/Home/product/@item.Id">
+                                    <img class="rounded-circle shadow-1-strong mb-4"
+
+                                         src="~/assets/images/wardrobe.png" alt="avatar"
+
+                                         style="width: 150px;" />
+                               </a>
+
+                                    <h4><a href="/Home/product/@item.Id">@item.Name</a></h4>
+
+                                    <p class="text-muted">
+                                        <i class="fas fa-quote-left pe-2"></i>
+                                       @item.Description
+                                    </p>
+                                    <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                                        <li><i class="fas fa-star fa-sm"></i></li>
+                                        <li><i class="fas fa-star fa-sm"></i></li>
+                                        <li><i class="fas fa-star fa-sm"></i></li>
+                                        <li><i class="fas fa-star fa-sm"></i></li>
+                                        <li><i class="fas fa-star fa-sm"></i></li>
+                                    </ul>
+
+                               <br>
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single item -->
+
+        </div>
+        <!-- Inner -->
+    </div>
+</div>*@
+
+<!-- Carousel wrapper -->
+<div class="row">
+    <section id="services" class="services section-bg">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2 class="alert alert-warning"> Categories</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+
+            <div class="row" >
+                <br />
+                @foreach (var item in Model)
+                {
+                    <br />
+
+                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                            <h4><a href="/Home/product/@item.Id">@item.Name</a></h4>
+                            <p style="min-width:220px; font-size:16px;" class="bs-light">@item.Description</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </section>
+</div>
+

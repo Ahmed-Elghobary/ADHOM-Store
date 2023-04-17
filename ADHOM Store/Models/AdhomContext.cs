@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ADHOM_Store.Models
 {
-    public partial class adhomContext : DbContext
+    public partial class AdhomContext : DbContext
     {
-        public adhomContext()
+        public AdhomContext()
         {
         }
 
-        public adhomContext(DbContextOptions<adhomContext> options)
+        public AdhomContext(DbContextOptions<AdhomContext> options)
             : base(options)
         {
         }
@@ -23,6 +23,8 @@ namespace ADHOM_Store.Models
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
         public virtual DbSet<Cart> Carts { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
+        public virtual DbSet<Order> Orders { get; set; } = null!;
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductImage> ProductImages { get; set; } = null!;
         public virtual DbSet<Review> Reviews { get; set; } = null!;
@@ -34,7 +36,7 @@ namespace ADHOM_Store.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-3UDQI7R;Database=Adhom;Trusted_Connection=true;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-3UDQI7R;Database=Adhom;Trusted_Connection=True;");
             }
         }
 
@@ -104,6 +106,40 @@ namespace ADHOM_Store.Models
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.ToTable("Category");
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.ToTable("Order");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Adress).HasColumnName("adress");
+
+                entity.Property(e => e.Email).HasColumnName("email");
+
+                entity.Property(e => e.Mobile).HasColumnName("mobile");
+
+                entity.Property(e => e.Name).HasColumnName("name");
+            });
+
+            modelBuilder.Entity<OrderDetail>(entity =>
+            {
+                entity.ToTable("OrderDetail");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Orderid).HasColumnName("orderid");
+
+                entity.Property(e => e.Price)
+                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnName("price");
+
+                entity.Property(e => e.ProductId).HasColumnName("productId");
+
+                entity.Property(e => e.Totalprice)
+                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnName("totalprice");
             });
 
             modelBuilder.Entity<Product>(entity =>

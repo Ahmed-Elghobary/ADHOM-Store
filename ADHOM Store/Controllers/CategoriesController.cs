@@ -11,9 +11,9 @@ namespace ADHOM_Store.Controllers
 {
     public class CategoriesController : Controller
     {
-        adhomContext db;
+        AdhomContext db;
 
-        public CategoriesController(adhomContext context)
+        public CategoriesController(AdhomContext context)
         {
             db = context;
         }

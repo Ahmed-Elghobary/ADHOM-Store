@@ -10,7 +10,7 @@ namespace ADHOM_Store.Controllers
 {
     public class HomeController : Controller
     {
-        adhomContext db = new adhomContext();
+        AdhomContext db = new AdhomContext();
         ApplicationDbContext _Usdb;
         UserManager<IdentityUser> _usermanger;
         RoleManager<IdentityRole> _role;
@@ -28,7 +28,8 @@ namespace ADHOM_Store.Controllers
             Result.CategoriesVm = db.Categories.ToList();
             Result.ProductsVm = db.Products.ToList();
             Result.ReviewsVm = db.Reviews.ToList();
-            Result.LatestProduct = db.Products.OrderByDescending(x => x.EntryDate).Take(4).ToList();
+            Result.LatestProduct = db.Products.OrderByDescending(x => x.EntryDate).Take(3).ToList();
+           
             return View(Result);
         }
 
@@ -92,8 +93,8 @@ namespace ADHOM_Store.Controllers
         public async Task<IActionResult> AddCart(int id)
         {
             var sellPrice = db.Products.Find(id).Price;
-            var CartPlus= db.Carts.FirstOrDefault(c => c.ProductId == id && c.UserId==User.Identity.Name);
-            if (CartPlus !=null)
+            var CartPlus = db.Carts.FirstOrDefault(c => c.ProductId == id && c.UserId == User.Identity.Name);
+            if (CartPlus != null)
             {
                 CartPlus.Qty += 1;
                 db.SaveChanges();
@@ -103,11 +104,49 @@ namespace ADHOM_Store.Controllers
                 db.Carts.Add(new Cart { ProductId = id, UserId = User.Identity.Name, Qty = 1, Price = sellPrice });
                 db.SaveChanges();
             }
-           
-           
+
+
             return RedirectToAction("Index");
         }
+        [Authorize]
+        public async Task<IActionResult> byNow(int id)
+        {
+            var sellPrice = db.Products.Find(id).Price;
+            var CartPlus = db.Carts.FirstOrDefault(c => c.ProductId == id && c.UserId == User.Identity.Name);
+            if (CartPlus != null)
+            {
+                CartPlus.Qty += 1;
+                db.SaveChanges();
+            }
+            else
+            {
+                db.Carts.Add(new Cart { ProductId = id, UserId = User.Identity.Name, Qty = 1, Price = sellPrice });
+                db.SaveChanges();
+            }
 
+
+            return RedirectToAction("Cart");
+        }
+        [Authorize]
+        public IActionResult AddOrder(Order model)
+        {
+            Order o = new Order
+            
+            {
+                Email = model.Email,Adress = model.Adress,Name = model.Name,Mobile = model.Mobile, Userid=User.Identity.Name
+            };
+
+            var CartItems =db.Carts.Where(x=>x.UserId == User.Identity.Name).ToList();
+           
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        //public IActionResult RemoveAll()
+        //{
+        //    db.Carts.RemoveRange();
+        //    return View("Cart");
+        //}
         public IActionResult product(int id)
         {
 
@@ -150,7 +189,9 @@ namespace ADHOM_Store.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
+       
+
         public IActionResult Categories()
         {
 
