@@ -3,7 +3,7 @@
     <table class="table table-hover">
         <tr>
 
-       
+
         <th>
             اسم المنتج
         </th>
@@ -24,10 +24,10 @@
             <td>  @item.Qty</td>
             <td>  @item.Product.Price</td>
             <td>  @(item.Product.Price*item.Qty)</td>
-           
+
         </tr>
     }
-    
+
     </table>
     <a class="btn btn-success" href="/home/AddOrder">
         اكمال الطلب
@@ -65,7 +65,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    
+
                                     @foreach (var item in Model)
                                     {
                                         <div class="card mb-3">
@@ -80,24 +80,24 @@
                                                             <a href="/home/CurrentProduct/@item.ProductId"> <h5>@item.Product.Name</h5> </a>
 
                                                             <h3 class="small mb-0 alert alert-warning">@item.Qty X @item.Price Total=@(item.Qty * item.Price) EGP </h3>
-                                                         
+
                                                         </div>
                                                     </div>
                                                     <div class="d-flex flex-row align-items-center">
                                                         <div style="width: 50px;">
                                                             <h4 class="fw-normal mb-0 ">  @item.Qty  </h4>
-                                                          
-                                                          @*  <h5 class="btn btn-danger">- 1</h5>*@
+
+                                                            @*  <h5 class="btn btn-danger">- 1</h5>*@
                                                         </div>
                                                         <div style="width: 80px;">
                                                             <h5 class="mb-0"> @item.Price EGP</h5>
-                                                          
+
                                                         </div>
                                                         <div class="ms-3">
                                                             <a href="">  </a>
-                                                           @* <p class="small mb-0">Sup Total <h5>@(item.Qty * item.Price)</h5></p>*@
+                                                            @* <p class="small mb-0">Sup Total <h5>@(item.Qty * item.Price)</h5></p>*@
                                                         </div>
-                                                       
+
                                                         <a href="#!" style="color: red;"><i class="fas fa-trash-alt"></i></a>
                                                     </div>
                                                 </div>
@@ -105,9 +105,9 @@
                                         </div>
                                     }
 
-                                  
 
-                                 
+
+
 
                                 </div>
                                 <div class="col-lg-5">
@@ -157,28 +157,28 @@
                                                 </div>
 
                                                 @*<div class="row mb-4">
-                                                    <div class="col-md-6">
-                                                        <div class="form-outline form-white">
-                                                            <input type="text" id="typeExp" class="form-control form-control-lg"
-                                                                   placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
-                                                            <label class="form-label" for="typeExp">Expiration</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-outline form-white">
-                                                            <input type="password" id="typeText" class="form-control form-control-lg"
-                                                                   placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                                                            <label class="form-label" for="typeText">Cvv</label>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-md-6">
+                                                <div class="form-outline form-white">
+                                                <input type="text" id="typeExp" class="form-control form-control-lg"
+                                                placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
+                                                <label class="form-label" for="typeExp">Expiration</label>
+                                                </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                <div class="form-outline form-white">
+                                                <input type="password" id="typeText" class="form-control form-control-lg"
+                                                placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                                                <label class="form-label" for="typeText">Cvv</label>
+                                                </div>
+                                                </div>
                                                 </div>*@
 
                                             </form>
 
                                             <hr class="my-4">
 
-                                        
-                                        
+
+
 
                                             <div class="d-flex justify-content-between">
                                                 <p class="mb-2">Subtotal</p>
@@ -194,7 +194,7 @@
                                                 <p class="mb-2">Total(Incl. taxes)</p>
                                                 <p class="mb-2">$4818.00</p>
                                             </div>
-                                           
+
                                             <button type="button" class="btn btn-info btn-block btn-lg">
                                                 <div class="d-flex justify-content-between">
                                                     <span>$4818.00</span>
